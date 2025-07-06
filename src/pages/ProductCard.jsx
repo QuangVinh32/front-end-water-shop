@@ -1,12 +1,13 @@
-
 const ProductCard = ({ product }) => {
     return (
-        <div className="rounded-xl overflow-hidden shadow hover:shadow-lg hover:scale-105 transition p-4 mt-6">
-            <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-60 object-cover rounded-lg"
-            />
+        <div className="rounded-xl overflow-hidden shadow hover:shadow-lg transition p-4 mt-6 group">
+            <div className="overflow-hidden rounded-lg">
+                <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-60 object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-110"
+                />
+            </div>
 
             <div className="mt-3 text-sm text-gray-600 flex items-center gap-1">
                 <span className="text-yellow-500 font-semibold">{product.rating}</span>
@@ -30,9 +31,7 @@ const ProductCard = ({ product }) => {
                 ) : (
                     <span className="text-gray-500">Liên hệ</span>
                 )}
-
             </div>
-
         </div>
     );
 };

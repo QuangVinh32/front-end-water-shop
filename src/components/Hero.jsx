@@ -86,9 +86,18 @@ const Hero = () => {
       </section>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {ProductData.slice(0, 10).map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {ProductData.slice(0, 10).map((product, index) => (
+            <motion.div
+              key={product.id}
+              variants={fadeIn('up', index * 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <ProductCard product={product} />
+            </motion.div>
           ))}
+
         </div>
       </div>
 
