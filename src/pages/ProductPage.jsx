@@ -1,0 +1,54 @@
+import React, { useState } from 'react';
+import ProductCard from '../pages/ProductCard';
+import ProductFilter from '../pages/ProductFilter';
+import ProductPagination from '../pages/ProductPagination';
+
+import ProductData from '../pages/ProductData';
+import SimpleSwiper from '../components/SimpleSwiper';
+
+const ProductPage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Tất cả');
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
+  const filteredProducts = ProductData.filter((product) => {
+    const matchSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchCategory = selectedCategory === 'Tất cả' || product.category === selectedCategory;
+    return matchSearch && matchCategory;
+  });
+
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  return (
+    <div className="max-w-screen-xl mx-auto mt-18 px-4 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">Danh sách nước uống</h1>
+
+      <ProductFilter
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {currentProducts.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+
+      <ProductPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
+
+
+
+    </div>
+  );
+
+};
+
+export default ProductPage;
