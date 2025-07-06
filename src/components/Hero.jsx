@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
-import banner from '../assets/banner_v1.png'
 import TestimonialsSection from './TestimonialsSection';
 import SimpleSwiper from './SimpleSwiper';
 import ProductCard from '../pages/ProductCard';
