@@ -6,6 +6,7 @@ import ThemeToggle from './components/ThemeToggle'
 import Hero from './components/Hero'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
+import ProductDetail from './pages/ProductDetail'
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
             <Route path="/home" element={<Hero />} />
             <Route path="/product" element={<ProductPage />} />
             <Route path="/testimonials" element={<ContactPage />} />
+            <Route path="/product/:id" element={<ProductDetail />} /> {/* Chi tiết sản phẩm */}
+
           </Routes>
           <Footer />
         </div>

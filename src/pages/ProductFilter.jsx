@@ -1,3 +1,5 @@
+import React from 'react';
+
 const categories = [
   'Tất cả', 'Trà Sữa', 'Trà trái cây', 'Nước ép', 'Sinh tố', 'Cafe', 'Sữa tươi',
   'Soda', 'Kem', 'Đồ ăn vặt', 'Đồ uống nóng', 'Chè', 'Sữa chua', 'Tàu hủ', 'Mỳ Cay'
@@ -9,7 +11,7 @@ const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelecte
 
       {/* Tìm kiếm */}
       <div className="w-full md:w-1/3">
-        <div className="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-green-500 transition">
+        <div className="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm focus-within:ring-1 focus-within:ring-green-500 transition">
           <div className="px-3 text-gray-400">
             <svg
               className="h-5 w-5"

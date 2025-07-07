@@ -9,11 +9,10 @@ const ProductPagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`flex items-center justify-center w-9 h-9 rounded-full border transition-colors ${
-          currentPage === 1
-            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-            : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-blue-600 border-gray-300'
-        }`}
+        className={`flex items-center justify-center w-9 h-9 rounded-full border transition-colors ${currentPage === 1
+          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+          : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-green-600 border-gray-300'
+          }`}
       >
         <ChevronLeft size={18} />
       </button>
@@ -23,11 +22,10 @@ const ProductPagination = ({ currentPage, totalPages, onPageChange }) => {
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`w-9 h-9 rounded-full font-medium text-sm transition-all border ${
-            currentPage === page
-              ? 'bg-blue-600 text-white border-blue-600'
-              : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-blue-600 border-gray-300'
-          }`}
+          className={`w-9 h-9 rounded-full font-medium text-sm transition-all border ${currentPage === page
+            ? 'bg-green-600 text-white border-green-600'
+            : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-green-600 border-gray-300'
+            }`}
         >
           {page}
         </button>
@@ -37,11 +35,10 @@ const ProductPagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`flex items-center justify-center w-9 h-9 rounded-full border transition-colors ${
-          currentPage === totalPages
-            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-            : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-blue-600 border-gray-300'
-        }`}
+        className={`flex items-center justify-center w-9 h-9 rounded-full border transition-colors ${currentPage === totalPages
+          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+          : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-green-600 border-gray-300'
+          }`}
       >
         <ChevronRight size={18} />
       </button>

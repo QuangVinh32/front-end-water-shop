@@ -1,5 +1,3 @@
-// src/data/products.js
-
 import TraSua01 from '../assets/tra-sua-01.png';
 import TraSua02 from '../assets/tra-sua-02.png';
 import TraSua03 from '../assets/tra-sua-03.png';
@@ -16,7 +14,7 @@ const ProductData = [
   {
     id: 1,
     name: "Trà đào",
-    category: "Trà",
+    category: "Trà trái cây",
     originalPrice: 25000,
     salePrice: 18000,
     rating: 4.7,
@@ -26,7 +24,7 @@ const ProductData = [
   {
     id: 2,
     name: "Trà sữa truyền thống",
-    category: "Sữa",
+    category: "Trà Sữa",
     originalPrice: 30000,
     salePrice: 25000,
     rating: 4.9,
@@ -45,8 +43,8 @@ const ProductData = [
   },
   {
     id: 4,
-    name: "Cà phê sữa",
-    category: "Cafe",
+    name: "Kem vani",
+    category: "Kem",
     originalPrice: 32000,
     salePrice: 28000,
     rating: 4.6,
@@ -63,18 +61,17 @@ const ProductData = [
     sold: 102,
     image: Tra02
   },
-    {
+  {
     id: 6,
-    name: "Sữa tươi",
-    category: "Soda",
+    name: "Sữa tươi trân châu",
+    category: "Sữa tươi",
     originalPrice: 32000,
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
     image: TraSua02
   },
-
-    {
+  {
     id: 7,
     name: "Cafe đen",
     category: "Cafe",
@@ -84,7 +81,7 @@ const ProductData = [
     sold: 102,
     image: Cafe01
   },
-    {
+  {
     id: 8,
     name: "Cafe sữa đá",
     category: "Cafe",
@@ -94,9 +91,9 @@ const ProductData = [
     sold: 102,
     image: Cafe02
   },
-      {
+  {
     id: 9,
-    name: "Trà tươi đào",
+    name: "Trà sữa đào",
     category: "Trà Sữa",
     originalPrice: 32000,
     salePrice: 27000,
@@ -104,16 +101,16 @@ const ProductData = [
     sold: 102,
     image: TraSua03
   },
-        {
-    id: 9,
-    name: "Trà tưa",
+  {
+    id: 10,
+    name: "Trà sữa trân châu đen",
     category: "Trà Sữa",
     originalPrice: 32000,
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
     image: TraSua04
-  },
+  }
 ];
 
 export default ProductData;

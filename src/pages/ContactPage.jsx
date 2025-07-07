@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPage = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12 font-sans">
+    <div className="max-w-5xl mx-auto px-4 py-12 font-sans">
       <h1 className="text-4xl font-bold mb-4 text-center text-green-600">Liên hệ với Quán Nước Chúng Tôi</h1>
       <p className="text-center text-gray-600 mb-10">
         Bạn cần đặt món, góp ý, hoặc chỉ đơn giản muốn nói "Hello"? Hãy gửi tin nhắn cho chúng tôi nhé 🍹🍧
@@ -75,7 +75,7 @@ const ContactPage = () => {
         <iframe
           title="Bản đồ quán"
           className="w-full h-72 rounded-lg border"
-          src="https://www.google.com/maps/place/GS25+%C4%90%C3%A0o+Duy+Anh/@21.0087069,105.8381893,274m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3135bb38e34704fd:0xf5b6a14030a3f8fa!2zVHJ1bmcgVMOibSDEkMSDbmcgS2nhu4NtIFhDRyA4OS0wNUQ!8m2!3d20.8745812!4d106.0396385!16s%2Fg%2F11lfk7qkz4!3m5!1s0x3135ab007fd27273:0xb7134ddf6fd2b7a0!8m2!3d21.0086825!4d105.8380797!16s%2Fg%2F11x121t7j0?hl=vi&entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+          src="https://www.google.com/maps/embed?pb=!1m18!..."
           allowFullScreen=""
           loading="lazy"
         ></iframe>
