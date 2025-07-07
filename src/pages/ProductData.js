@@ -19,7 +19,8 @@ const ProductData = [
     salePrice: 18000,
     rating: 4.7,
     sold: 312,
-    image: Tra01
+    image: Tra01,
+    description: "Trà đào thơm mát với hương vị đào tự nhiên, giúp giải nhiệt hiệu quả trong những ngày nắng nóng."
   },
   {
     id: 2,
@@ -29,7 +30,8 @@ const ProductData = [
     salePrice: 25000,
     rating: 4.9,
     sold: 483,
-    image: TraSua01
+    image: TraSua01,
+    description: "Trà sữa truyền thống đậm đà vị trà, hòa quyện cùng vị béo nhẹ của sữa, thích hợp cho mọi lứa tuổi."
   },
   {
     id: 3,
@@ -39,7 +41,8 @@ const ProductData = [
     salePrice: 30000,
     rating: 4.8,
     sold: 231,
-    image: Kem01
+    image: Kem01,
+    description: "Nước ép cam nguyên chất 100%, giàu vitamin C, tăng cường đề kháng và thanh lọc cơ thể."
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const ProductData = [
     salePrice: 28000,
     rating: 4.6,
     sold: 198,
-    image: Kem02
+    image: Kem02,
+    description: "Kem vani mịn màng, ngọt dịu với hương vani tự nhiên, tan chảy trong miệng."
   },
   {
     id: 5,
@@ -59,7 +63,8 @@ const ProductData = [
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
-    image: Tra02
+    image: Tra02,
+    description: "Soda bạc hà tươi mát, vị the the sảng khoái, lý tưởng để giải khát nhanh chóng."
   },
   {
     id: 6,
@@ -69,7 +74,8 @@ const ProductData = [
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
-    image: TraSua02
+    image: TraSua02,
+    description: "Sữa tươi kết hợp trân châu dẻo ngon, mang lại hương vị độc đáo và bổ dưỡng."
   },
   {
     id: 7,
@@ -79,7 +85,8 @@ const ProductData = [
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
-    image: Cafe01
+    image: Cafe01,
+    description: "Cafe đen nguyên chất, đậm vị và thơm lừng, dành cho những ai yêu thích sự mạnh mẽ."
   },
   {
     id: 8,
@@ -89,7 +96,8 @@ const ProductData = [
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
-    image: Cafe02
+    image: Cafe02,
+    description: "Cafe sữa đá pha trộn giữa vị đắng nhẹ của cafe và vị béo của sữa, thích hợp dùng mỗi sáng."
   },
   {
     id: 9,
@@ -99,7 +107,8 @@ const ProductData = [
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
-    image: TraSua03
+    image: TraSua03,
+    description: "Sự kết hợp hài hòa giữa trà sữa và hương đào dịu nhẹ, tạo nên thức uống thơm ngon, độc đáo."
   },
   {
     id: 10,
@@ -109,7 +118,8 @@ const ProductData = [
     salePrice: 27000,
     rating: 4.5,
     sold: 102,
-    image: TraSua04
+    image: TraSua04,
+    description: "Trà sữa trân châu đen với lớp trân châu dai ngon, hấp dẫn và cực kỳ bắt vị."
   }
 ];
 

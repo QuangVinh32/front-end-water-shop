@@ -10,7 +10,7 @@ const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelecte
     <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between border-1 border-gray-200 bg-white p-4 rounded-xl shadow-md">
 
       {/* Tìm kiếm */}
-      <div className="w-full md:w-1/3">
+      <div className="w-full md:w-1/4">
         <div className="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm focus-within:ring-1 focus-within:ring-green-500 transition">
           <div className="px-3 text-gray-400">
             <svg
@@ -34,7 +34,7 @@ const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelecte
       </div>
 
       {/* Danh mục */}
-      <div className="w-full md:w-2/3 overflow-x-auto">
+      <div className="w-full md:w-3/4 overflow-x-auto">
         <div className="flex gap-2 flex-nowrap whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
           {categories.map((cat) => (
             <button
