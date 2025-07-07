@@ -37,7 +37,7 @@ const testimonials = [
   },
   {
     id: 6,
-    name: "Hoàng Yến Nhi",
+    name: "Nguyễn Thị Lan",
     image: "https://randomuser.me/api/portraits/women/28.jpg",
     text: "Họ phản hồi rất nhanh và luôn đặt khách hàng lên hàng đầu.",
   },

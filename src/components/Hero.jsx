@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 import TestimonialsSection from './TestimonialsSection';
 import SimpleSwiper from './SimpleSwiper';
 import ProductCard from '../pages/ProductCard';
@@ -59,9 +59,12 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="text-center bg-green-600 mb-8 text-white py-4 rounded-lg cursor-pointer hover:bg-green-700 transition-all w-[150px] mx-auto h-[50px] flex items-center justify-center">
+      <Link
+        to="/product"
+        className="text-center bg-green-600 mb-8 text-white py-4 rounded-lg cursor-pointer hover:bg-green-700 transition-all w-[150px] mx-auto h-[50px] flex items-center justify-center"
+      >
         Xem tất cả
-      </div>
+      </Link>
 
       <TestimonialsSection />
     </>
