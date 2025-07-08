@@ -7,7 +7,7 @@ import Hero from './components/Hero'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import ProductDetail from './pages/ProductDetail'
-
+import ScrollToTop from './components/ScrollToTop'; 
 function App() {
   return (
     <Router>
@@ -16,6 +16,7 @@ function App() {
         <div className="overflow-hidden">
           <Navbar />
           <ThemeToggle />
+          <ScrollToTop />
           <Routes>
             <Route path="/home" element={<Hero />} />
             <Route path="/product" element={<ProductPage />} />

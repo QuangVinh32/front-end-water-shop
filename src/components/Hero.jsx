@@ -61,7 +61,7 @@ const Hero = () => {
 
       <Link
         to="/product"
-        className="text-center bg-green-600 mb-8 text-white py-4 rounded-lg cursor-pointer hover:bg-green-700 transition-all w-[150px] mx-auto h-[50px] flex items-center justify-center"
+        className="text-center border-2 border-green-600 mb-8 text-black py-4 rounded-lg cursor-pointer hover:bg-green-700 transition-all w-[150px] mx-auto h-[50px] flex items-center justify-center"
       >
         Xem tất cả
       </Link>
