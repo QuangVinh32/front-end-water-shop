@@ -7,7 +7,7 @@ import ProductData from '../pages/ProductData';
 const Hero = () => {
   return (
     <>
-      <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-16 pb-2 max-w-screen-xl mx-auto box-border">
+      <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-18 pb-2 max-w-screen-xl mx-auto box-border">
         {/* Cột trái */}
         <div className="w-full md:w-1/2 space-y-8">
           {/* Huy hiệu sao */}
@@ -31,13 +31,13 @@ const Hero = () => {
           </p>
 
           {/* Button ở giữa */}
-          <div className="flex gap-3 max-w-md">
+          <div className="flex gap-3 max-w-md ">
             <input
               type="email"
               placeholder="Nhập email để nhận ưu đãi"
-              className="flex-1 px-6 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition-all text-gray-600"
+              className="flex-1 px-6 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition-all text-gray-600"
             />
-            <button className="bg-green-600 text-white px-8 py-4 rounded-xl hover:bg-green-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-green-100 active:scale-95">
+            <button className="bg-green-600 text-white px-8 py-2 rounded-xl hover:bg-green-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-green-100 active:scale-95">
               Đăng ký
             </button>
           </div>
@@ -49,7 +49,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-2">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {ProductData.slice(0, 10).map((product) => (
             <div key={product.id}>
@@ -61,7 +61,7 @@ const Hero = () => {
 
       <Link
         to="/product"
-        className="text-center border-2 border-green-600 mb-8 text-black py-4 rounded-lg cursor-pointer hover:bg-green-700 transition-all w-[150px] mx-auto h-[50px] flex items-center justify-center"
+        className="text-center bg-green-600 mb-6 text-white rounded-xl text-lg cursor-pointer w-[150px] mx-auto h-[50px] flex items-center justify-center hover:bg-green-700"
       >
         Xem tất cả
       </Link>

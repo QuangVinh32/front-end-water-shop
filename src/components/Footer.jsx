@@ -81,7 +81,7 @@ const Footer = () => {
                       <li key={index}>
                         <a
                           href={link.href}
-                          className="text-gray-600 hover:text-gray-900 hover:text-green-600"
+                          className="text-gray-600 hover:text-green-600"
                         >
                           {link.name}
                         </a>

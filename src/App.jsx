@@ -7,21 +7,21 @@ import Hero from './components/Hero'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import ProductDetail from './pages/ProductDetail'
-import ScrollToTop from './components/ScrollToTop'; 
+import ScrollToTop from './components/ScrollToTop';
 function App() {
   return (
     <Router>
       <main className="relative min-h-screen overflow-x-hidden mt-18">
-        <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10"></div>
         <div className="overflow-hidden">
           <Navbar />
           <ThemeToggle />
           <ScrollToTop />
           <Routes>
+            <Route path="/" element={<Hero />} />
             <Route path="/home" element={<Hero />} />
             <Route path="/product" element={<ProductPage />} />
             <Route path="/testimonials" element={<ContactPage />} />
-            <Route path="/product/:id" element={<ProductDetail />} /> {/* Chi tiết sản phẩm */}
+            <Route path="/product/:id" element={<ProductDetail />} /> 
 
           </Routes>
           <Footer />

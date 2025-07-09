@@ -25,8 +25,7 @@ const ProductDetail = () => {
         ← Quay lại
       </Link>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white shadow-xl rounded-2xl p-8">
-        {/* Ảnh sản phẩm */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white shadow-xl rounded-2xl p-8">
         <div className="flex justify-center items-center">
           <img
             src={product.image}
@@ -35,7 +34,6 @@ const ProductDetail = () => {
           />
         </div>
 
-        {/* Thông tin chi tiết */}
         <div className="flex flex-col justify-between">
           <div>
             <h1 className="text-4xl font-extrabold text-green-600 mb-4">{product.name}</h1>
@@ -71,7 +69,7 @@ const ProductDetail = () => {
             Thêm vào giỏ hàng
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ProductCard from '../pages/ProductCard';
 import ProductFilter from '../pages/ProductFilter';
 import ProductPagination from '../pages/ProductPagination';
@@ -8,7 +8,7 @@ const ProductPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tất cả');
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 5;
+  const productsPerPage = 10;
   const filteredProducts = ProductData.filter((product) => {
     const matchSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchCategory = selectedCategory === 'Tất cả' || product.category === selectedCategory;
