@@ -1,4 +1,3 @@
-import React from 'react';
 
 const categories = [
   'Tất cả', 'Trà Sữa', 'Trà trái cây', 'Nước ép', 'Sinh tố', 'Cafe', 'Sữa tươi',
@@ -28,7 +27,7 @@ const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelecte
             placeholder="Tìm kiếm nước uống..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full py-2 pr-4 bg-white text-sm focus:outline-none"
+            className="w-full py-2 pr-4 bg-white text-base md:text-sm focus:outline-none"
           />
         </div>
       </div>
