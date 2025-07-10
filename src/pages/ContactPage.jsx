@@ -1,7 +1,7 @@
 
 const ContactPage = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12 font-sans">
+    <div className="max-w-6xl mx-auto px-4 py-12 font-sans">
       <h1 className="text-4xl font-bold mb-4 text-center text-green-600">Liên hệ với Quán Nước Chúng Tôi</h1>
       <p className="text-center text-gray-600 mb-10">
         Bạn cần đặt món, góp ý, hoặc chỉ đơn giản muốn nói "Hello"? Hãy gửi tin nhắn cho chúng tôi nhé 🍹🍧

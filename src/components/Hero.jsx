@@ -3,11 +3,12 @@ import TestimonialsSection from './TestimonialsSection';
 import SimpleSwiper from './SimpleSwiper';
 import ProductCard from '../pages/ProductCard';
 import ProductData from '../pages/ProductData';
+import Background from './Background';
 
 const Hero = () => {
   return (
     <>
-      <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-18 pb-2 max-w-screen-xl mx-auto box-border">
+      <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-20 pb-2 max-w-7xl mx-auto box-border">
         {/* Cột trái */}
         <div className="w-full md:w-1/2 space-y-8">
           {/* Huy hiệu sao */}
@@ -49,22 +50,24 @@ const Hero = () => {
         </div>
       </section>
 
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-2">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {ProductData.slice(0, 10).map((product) => (
             <div key={product.id}>
               <ProductCard product={product} />
             </div>
           ))}
         </div>
+        <Link
+          to="/product"
+          className="text-center bg-green-600 mt-8 text-white rounded-xl text-lg cursor-pointer w-[150px] mx-auto h-[50px] flex items-center justify-center hover:bg-green-700"
+        >
+          Xem tất cả
+        </Link>
       </div>
 
-      <Link
-        to="/product"
-        className="text-center bg-green-600 mb-6 text-white rounded-xl text-lg cursor-pointer w-[150px] mx-auto h-[50px] flex items-center justify-center hover:bg-green-700"
-      >
-        Xem tất cả
-      </Link>
+
+      {/* <Background/> */}
 
       <TestimonialsSection />
     </>

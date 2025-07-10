@@ -20,9 +20,8 @@ const ProductPage = () => {
   const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   return (
-    <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-3xl text-green-600 font-bold mb-6 text-center">Danh sách nước uống</h1>
-
+    <div className="max-w-7xl mx-auto px-4 mt-2 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">Danh sách nước uống</h1>
       <ProductFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}

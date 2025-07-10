@@ -8,20 +8,22 @@ import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import ProductDetail from './pages/ProductDetail'
 import ScrollToTop from './components/ScrollToTop';
+import Background from './components/Background'
 function App() {
   return (
     <Router>
-      <main className="relative min-h-screen overflow-x-hidden mt-18">
+      <main className="relative min-h-screen overflow-x-hidden mt-16">
         <div className="overflow-hidden">
           <Navbar />
           <ThemeToggle />
+          {/* <Background /> */}
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/home" element={<Hero />} />
             <Route path="/product" element={<ProductPage />} />
             <Route path="/testimonials" element={<ContactPage />} />
-            <Route path="/product/:id" element={<ProductDetail />} /> 
+            <Route path="/product/:id" element={<ProductDetail />} />
 
           </Routes>
           <Footer />
