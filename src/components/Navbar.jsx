@@ -54,7 +54,7 @@ const Navbar = () => {
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">3</span>
           </button>
 
-          <button className="hidden md:block bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 text-sm font-medium mr-10 transition-all hover:shadow-lg hover:shadow-blue-100">
+          <button className="hidden md:block bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 text-sm font-medium mr-10 transition-all hover:shadow-lg hover:shadow-blue-100">
             <a href="#newsletter">Hội Viên</a>
           </button>
         </div>

@@ -38,7 +38,7 @@ const Hero = () => {
               placeholder="Nhập email để nhận ưu đãi"
               className="flex-1 px-6 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition-all text-gray-600"
             />
-            <button className="bg-green-600 text-white px-8 py-2 rounded-xl hover:bg-green-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-green-100 active:scale-95">
+            <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-8 py-2 rounded-xl hover:bg-green-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-green-100 active:scale-95">
               Đăng ký
             </button>
           </div>
@@ -60,12 +60,13 @@ const Hero = () => {
         </div>
         <Link
           to="/product"
-          className="text-center bg-green-600 mt-8 text-white rounded-xl text-lg cursor-pointer w-[150px] mx-auto h-[50px] flex items-center justify-center hover:bg-green-700"
+          className="text-center bg-gradient-to-r from-blue-500 to-green-500 mt-8 text-white rounded-xl text-lg cursor-pointer w-[150px] mx-auto h-[50px] flex items-center justify-center hover:bg-green-700"
         >
           Xem tất cả
         </Link>
       </div>
       {/* <Background/> */}
+
       <TestimonialsSection />
     </>
   )

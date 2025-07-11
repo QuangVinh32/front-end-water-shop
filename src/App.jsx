@@ -9,6 +9,7 @@ import ContactPage from './pages/ContactPage'
 import ProductDetail from './pages/ProductDetail'
 import ScrollToTop from './components/ScrollToTop';
 import Background from './components/Background'
+import GuidePage from './pages/GuidePage'
 function App() {
   return (
     <Router>
@@ -24,6 +25,8 @@ function App() {
             <Route path="/product" element={<ProductPage />} />
             <Route path="/testimonials" element={<ContactPage />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/about" element={<GuidePage />} />
+
 
           </Routes>
           <Footer />
