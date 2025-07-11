@@ -65,10 +65,7 @@ const Hero = () => {
           Xem tất cả
         </Link>
       </div>
-
-
       {/* <Background/> */}
-
       <TestimonialsSection />
     </>
   )
