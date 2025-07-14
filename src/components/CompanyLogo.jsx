@@ -3,7 +3,7 @@ import amazon from '../assets/amazon.png'
 import woocommerce from '../assets/woocommerce.png'
 import meundies from '../assets/meundies.png'
 import sitepoint from '../assets/sitepoint.png'
-import '../App.css'; // đảm bảo đã import
+import '../App.css'; 
 
 const CompanyLogo = () => {
   const logos = [slack, amazon, woocommerce, meundies, sitepoint];
