@@ -18,7 +18,7 @@ function App() {
         <div className="overflow-hidden">
           <Navbar />
           <ThemeToggle />
-          {/* <Background /> */}
+          <Background />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Hero />} />
