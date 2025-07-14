@@ -5,12 +5,21 @@ const ProductCard = ({ product }) => {
     <Link to={`/product/${product.id}`}>
       <div className="rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-300 p-4 mt-4 group cursor-pointer">
         {/* Hình ảnh */}
-        <div className="overflow-hidden rounded-lg">
+        <div className="overflow-hidden rounded-lg relative">
           <img
-            src={product.image}
+            src={product.image[0]} // ✅ lấy ảnh đầu tiên
             alt={product.name}
             className="w-full h-48 object-cover rounded-lg transform group-hover:scale-110 transition-transform duration-300"
           />
+          
+          {/* Trạng thái còn hàng / hết hàng */}
+          <span
+            className={`absolute top-2 left-2 text-xs px-2 py-1 rounded font-medium ${
+              product.inStock ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
+            }`}
+          >
+            {product.inStock ? 'Còn hàng' : 'Hết hàng'}
+          </span>
         </div>
 
         {/* Đánh giá + số đã bán */}
@@ -21,7 +30,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Tên sản phẩm */}
-        <h3 className=" font-medium flex items-center text-gray-800 mt-1 overflow-hidden text-ellipsis whitespace-nowrap">
+        <h3 className="font-medium flex items-center text-gray-800 mt-1 overflow-hidden text-ellipsis whitespace-nowrap">
           {product.name}
         </h3>
 
