@@ -13,7 +13,7 @@ const Navbar = () => {
     { href: "/about", label: "Hướng dẫn mua hàng" },
     { href: "/product", label: "Sản phẩm" },
     { href: "/recruitment", label: "Tuyển dụng" },
-    { href: "/testimonials", label: "Liên hệ" },
+    // { href: "/contact", label: "Liên hệ" },
   ]
 
   return (

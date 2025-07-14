@@ -10,6 +10,9 @@ const ProductDetail = () => {
   const product = ProductData.find(p => p.id === parseInt(id));
   const [selectedImage, setSelectedImage] = useState(product?.image?.[0]);
 
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+
   if (!product) {
     return (
       <div className="max-w-screen-xl flex items-center justify-center bg-gray-50">
@@ -170,9 +173,10 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-        </div>
-        
+        </div> 
       </div>
+
+
       <div className="mt-10">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-gray-900">Sản phẩm liên quan</h2>

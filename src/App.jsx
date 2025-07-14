@@ -10,6 +10,7 @@ import ProductDetail from './pages/ProductDetail'
 import ScrollToTop from './components/ScrollToTop';
 import Background from './components/Background'
 import GuidePage from './pages/GuidePage'
+import RecruitmentPage from './pages/RecruitmentPage'
 function App() {
   return (
     <Router>
@@ -23,11 +24,10 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/home" element={<Hero />} />
             <Route path="/product" element={<ProductPage />} />
-            <Route path="/testimonials" element={<ContactPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/about" element={<GuidePage />} />
-
-
+            <Route path="/recruitment" element={<RecruitmentPage />} />
           </Routes>
           <Footer />
         </div>
