@@ -261,6 +261,7 @@
 
 .marquee-content {
   display: flex;
-  width: fit-content;
+  width: max-content;
   animation: marquee-right-to-left 25s linear infinite;
+  align-items: center;
 }

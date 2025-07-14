@@ -20,7 +20,7 @@ const ProductPage = () => {
   const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   return (
-    <div className="max-w-7xl mx-auto px-4 mt-2 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 mt-2 sm:px-6 lg:px-8">
         <h1 className="text-2xl text-center md:text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">
         Liên hệ với Quán Nước Chúng Tôi
         </h1>

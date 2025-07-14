@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiShoppingCart } from 'react-icons/fi'
 import { useCart } from '../context/CartProvider';
@@ -6,7 +6,7 @@ import { useCart } from '../context/CartProvider';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('#home')
-  const { cartCount } = useCart();  // ✅ sửa ở đây
+  const { cartCount } = useCart();
 
   const navLinks = [
     { href: "/home", label: "Trang chủ" },

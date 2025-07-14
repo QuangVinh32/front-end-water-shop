@@ -34,7 +34,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-50">
+    <footer className="bg-white">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand Column */}
