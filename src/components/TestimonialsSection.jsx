@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="scroll-mt-24 pt-8 pb-16 px-4 max-w-7xl mx-auto"
+      className="scroll-mt-24 pt-8 pb-10 px-4 max-w-7xl mx-auto"
     >
       <div className="text-center mb-12">
         <h2 className="text-3xl text-green-600 md:text-4xl font-bold mb-4">
@@ -77,7 +77,7 @@ const TestimonialsSection = () => {
               slidesPerView: 3,
             },
           }}
-          className="testimonials-swiper md:mb-12 relative"
+          className="testimonials-swiper relative"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className='h-full md:py-12 py-4'>
@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
         </Swiper>
 
         {/* Custom Navigation Buttons */}
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-4 sm:mt-0 mt-6">
           <button
             className="swiper-button-prev-custom w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
           >

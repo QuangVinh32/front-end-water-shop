@@ -243,3 +243,24 @@
   text-align: center;
 }
 
+
+@keyframes marquee-right-to-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  width: fit-content;
+  animation: marquee-right-to-left 25s linear infinite;
+}

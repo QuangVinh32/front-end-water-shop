@@ -16,7 +16,7 @@ const ContactPage = () => {
         </div>
 
         {/* Thông tin liên hệ */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 space-y-4">
             {/* Địa chỉ */}
             <div className="flex items-start">
