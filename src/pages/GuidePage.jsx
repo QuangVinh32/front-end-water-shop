@@ -25,7 +25,7 @@ export default function GuidePage() {
   ];
 
   return (
-    <div className="relative py-10 px-4 text-center overflow-hidden">
+    <div className="relative py-10 px-4 text-center ">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-12">
           {/* <div className="inline-block bg-gradient-to-r from-blue-600 to-green-500 text-white px-6 py-2 rounded-lg mb-4 text-sm font-medium">
@@ -50,8 +50,8 @@ export default function GuidePage() {
               {/* Line between steps (desktop only) */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                  <div className="w-16 h-1 bg-gray-200 group-hover:bg-green-500 transition-colors duration-500 rounded-full"></div>
-                  <div className="absolute top-1/2 right-0 transform translate-y-[-50%] w-4 h-4 rounded-full bg-gray-300 group-hover:bg-green-500 transition-colors duration-500"></div>
+                  <div className="w-16 h-1 group-hover:bg-green-500 transition-colors duration-500 rounded-full"></div>
+                  <div className="absolute top-1/2 right-0 transform translate-y-[-50%] w-4 h-4 rounded-full  group-hover:bg-green-500 transition-colors duration-500"></div>
                 </div>
               )}
 
