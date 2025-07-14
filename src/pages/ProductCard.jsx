@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Tên sản phẩm */}
-        <h3 className="text-base font-medium text-gray-800 mt-1 line-clamp-1">{product.name}</h3>
+        <h3 className="text-base font-medium text-gray-800 mt-1 flex items-center line-clamp-1">{product.name}</h3>
 
         {/* Giá */}
         <div className="mt-2 flex items-center gap-2">
