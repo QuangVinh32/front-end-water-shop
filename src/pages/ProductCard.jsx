@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Tên sản phẩm */}
-        <h3 className=" font-medium text-gray-800 mt-1 overflow-hidden text-ellipsis whitespace-nowrap">
+        <h3 className=" font-medium flex items-center text-gray-800 mt-1 overflow-hidden text-ellipsis whitespace-nowrap">
           {product.name}
         </h3>
 
