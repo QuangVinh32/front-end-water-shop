@@ -5,13 +5,41 @@ import ProductData from './ProductData';
 import ProductCard from '../pages/ProductCard';
 import { Link } from 'react-router-dom';
 
+const reviews = [
+  {
+    productId: 1,
+    name: "Lê Quang Vinh",
+    image: "https://randomuser.me/api/portraits/men/77.jpg",
+    rating: 5,
+    text: "Sản phẩm tốt, giao hàng nhanh, rất hài lòng.",
+  },
+  {
+    productId: 1,
+    name: "Nguyễn Thị Lan",
+    image: "https://randomuser.me/api/portraits/women/28.jpg",
+    rating: 4,
+    text: "Dịch vụ ổn, chất lượng sản phẩm khá tốt.",
+  },
+  {
+    productId: 2,
+    name: "Phạm Thị Ánh",
+    image: "https://randomuser.me/api/portraits/women/45.jpg",
+    rating: 5,
+    text: "Sản phẩm rất tuyệt vời. Mình sẽ mua lại lần sau!",
+  },
+];
+
 const ProductDetail = () => {
   const { id } = useParams();
   const product = ProductData.find(p => p.id === parseInt(id));
   const [selectedImage, setSelectedImage] = useState(product?.image?.[0]);
 
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  // Tính toán thông tin đánh giá
+  const productReviews = reviews.filter(r => r.productId === product?.id);
+  const totalReviews = productReviews.length;
+  const averageRating = totalReviews > 0
+    ? (productReviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews).toFixed(1)
+    : 0;
 
   if (!product) {
     return (
@@ -32,6 +60,7 @@ const ProductDetail = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 mb-10">
+      {/* Breadcrumb */}
       <nav className="flex mb-6" aria-label="Breadcrumb">
         <ol className="flex items-center flex-wrap gap-2 text-sm">
           <li>
@@ -51,13 +80,15 @@ const ProductDetail = () => {
           </li>
           <li className="text-gray-400">/</li>
           <li>
-            <span className="text-gray-500 ">{product.name}</span>
+            <span className="text-gray-500">{product.name}</span>
           </li>
         </ol>
       </nav>
 
+      {/* Product Detail */}
       <div className="bg-white rounded-xl shadow-sm">
         <div className="flex flex-col lg:flex-row gap-8 p-6">
+          {/* Product Images */}
           <div className="lg:w-2/5 flex flex-col">
             <div className="bg-gray-50 overflow-hidden aspect-square flex items-center justify-center p-6 rounded-xl">
               <img
@@ -86,65 +117,48 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <div className="lg:w-3/5">
-            <div>
-              <div className="flex justify-between items-start">
+                <div className="lg:w-3/5">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
-                  <div className="flex items-center mt-1">
-                    <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  <div className="flex justify-between items-start">
+                  <div>
+                    <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
+                    <div className="flex items-center mt-1">
+                    <div className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
                       {product.category}
-                    </span>
+                    </div>
+                    </div>
+                    <div className="flex items-center mt-1">
+                    <div
+                      className={`text-xs font-semibold px-2.5 py-0.5 rounded
+                      ${product.inStock
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-700'}
+                      `}
+                    >
+                      {product.inStock ? 'Còn hàng' : 'Hết hàng'}
+                    </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              
-
-              <div className="mt-4 flex flex-wrap items-center gap-4">
-                <div className="flex items-center bg-yellow-50 px-3 py-1 rounded-full">
+                  </div>
                   
+                  {/* Rating and Sales */}
+              {/* <div className="mt-4 flex flex-wrap items-center gap-4">
+                <div className="flex items-center bg-yellow-50 px-3 py-1 rounded-full">
                   <svg className="text-yellow-400 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  
                   <span className="ml-1 text-gray-800 font-medium">{product.rating}</span>
                 </div>
                 <div className="text-gray-600">Đã bán: <span className="font-medium">{product.sold}</span></div>
-              </div>
+              </div> */}
 
+              {/* Product Description */}
               <div className="mt-6 p-4 bg-gray-50 rounded-lg">
                 <h2 className="text-lg font-medium text-gray-900 mb-2">Mô tả sản phẩm</h2>
                 <p className="text-gray-700">{product.description}</p>
               </div>
-              
 
-              <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                <h3 className="text-sm font-medium text-gray-900 mb-1">Giá sản phẩm</h3>
-                <div className="flex items-baseline">
-                  {product.originalPrice && (
-                    <span className="text-gray-500 text-lg line-through mr-3">
-                      {product.originalPrice.toLocaleString()}₫
-                    </span>
-                  )}
-                  <span className="text-2xl font-bold text-red-600">
-                    {product.salePrice ? `${product.salePrice.toLocaleString()}₫` : 'Liên hệ'}
-                  </span>
-
-                  {product.salePrice && product.originalPrice && (
-                    <span className="ml-3 bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded">
-                      Tiết kiệm {((product.originalPrice - product.salePrice) / 1000).toFixed(0)}k
-                    </span>
-                  )}
-                </div>
-              </div>
-              {/* <div className="mt-4">
-              <span className={`inline-block px-3 py-1 text-sm font-medium rounded-lg ${
-                product.inStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-              }`}>
-                {product.inStock ? 'Còn hàng' : 'Hết hàng'}
-              </span>
-            </div> */}
-
+              {/* Action Buttons */}
               <div className="mt-8">
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button className="flex-1 flex items-center justify-center gap-2 bg-green-600 border border-transparent rounded-lg py-3 px-8 text-base font-medium text-white hover:bg-green-700 transition duration-300">
@@ -176,7 +190,55 @@ const ProductDetail = () => {
         </div> 
       </div>
 
+      {/* Product Reviews */}
+      <div className="mt-10 bg-white rounded-xl shadow-sm p-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Đánh giá sản phẩm</h2>
 
+        <div className="mb-6 flex items-center gap-4">
+          <div className="text-yellow-500 text-3xl font-bold">{averageRating}</div>
+          <div className="flex flex-col">
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className={`w-5 h-5 ${i < Math.round(averageRating) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-gray-600 text-sm">{totalReviews} đánh giá</span>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          {totalReviews > 0 ? (
+            productReviews.map((review, index) => (
+              <div key={index} className="flex gap-4 p-4 bg-gray-50 rounded-lg">
+                <img
+                  src={review.image}
+                  alt={review.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-semibold text-gray-800">{review.name}</h4>
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className={`w-4 h-4 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-700 mt-1">{review.text}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-600 text-center py-8">Chưa có đánh giá nào cho sản phẩm này.</p>
+          )}
+        </div>
+      </div>
+
+      {/* Related Products */}
       <div className="mt-10">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-gray-900">Sản phẩm liên quan</h2>

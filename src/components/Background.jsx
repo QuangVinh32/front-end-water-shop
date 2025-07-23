@@ -32,76 +32,81 @@ export default function Background() {
     cool: "😎"
   };
 
-  // Tạo hiệu ứng nền động
-  useEffect(() => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.zIndex = '-9999';
-    document.body.appendChild(canvas);
-    
-    const particles = [];
-    const particleCount = 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 5 + 2,
-        color: `rgba(${Math.floor(Math.random() * 100 + 155)}, 
-                ${Math.floor(Math.random() * 200 + 55)}, 
-                ${Math.floor(Math.random() * 100 + 155)}, 
-                ${Math.random() * 0.4 + 0.1})`,
-        speed: Math.random() * 0.5 + 0.1,
-        angle: Math.random() * Math.PI * 2
-      });
-    }
-    
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Gradient nền
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-      gradient.addColorStop(0.5, 'rgba(200, 255, 200, 0.5)');
-      gradient.addColorStop(1, 'rgba(173, 216, 230, 0.7)');
-      
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Vẽ các hạt
-      particles.forEach(particle => {
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.fill();
-        
-        // Di chuyển hạt
-        particle.x += Math.cos(particle.angle) * particle.speed;
-        particle.y += Math.sin(particle.angle) * particle.speed;
-        
-        // Xử lý va chạm với cạnh
-        if (particle.x < 0 || particle.x > canvas.width) {
-          particle.angle = Math.PI - particle.angle;
-        }
-        if (particle.y < 0 || particle.y > canvas.height) {
-          particle.angle = -particle.angle;
-        }
-      });
-      
-      requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    return () => {
-      document.body.removeChild(canvas);
-    };
-  }, []);
+ useEffect(() => {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.zIndex = '-9999';
+  document.body.appendChild(canvas);
+
+  const colors = [
+    // "rgba(255, 99, 132, 0.6)",
+    // "rgba(54, 162, 235, 0.6)",
+    // "rgba(255, 206, 86, 0.6)",
+    // "rgba(75, 192, 192, 0.6)",
+    // "rgba(153, 102, 255, 0.6)",
+    // "rgba(255, 159, 64, 0.6)",
+    // "rgba(255, 255, 255, 0.6)",
+  ];
+
+  const particles = [];
+  const particleCount = 50;
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 10 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      speed: Math.random() * 0.5 + 0.1,
+      angle: Math.random() * Math.PI * 2
+    });
+  }
+
+  const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Gradient nền
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+    gradient.addColorStop(0.5, 'rgba(200, 255, 200, 0.4)');
+    gradient.addColorStop(1, 'rgba(173, 216, 230, 0.6)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Vẽ các hạt
+    particles.forEach(particle => {
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = particle.color;
+      ctx.fill();
+
+      // Di chuyển hạt
+      particle.x += Math.cos(particle.angle) * particle.speed;
+      particle.y += Math.sin(particle.angle) * particle.speed;
+
+      // Xử lý va chạm với cạnh
+      if (particle.x < 0 || particle.x > canvas.width) {
+        particle.angle = Math.PI - particle.angle;
+      }
+      if (particle.y < 0 || particle.y > canvas.height) {
+        particle.angle = -particle.angle;
+      }
+    });
+
+    requestAnimationFrame(animate);
+  };
+
+  animate();
+
+  return () => {
+    document.body.removeChild(canvas);
+  };
+}, []);
 
   // Di chuyển bot ngẫu nhiên
   useEffect(() => {
