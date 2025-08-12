@@ -110,12 +110,12 @@ const TestimonialsSection = () => {
         {/* Custom Navigation Buttons */}
         <div className="flex justify-center gap-4 sm:mt-0 mt-2">
           <button
-            className="swiper-button-prev-custom bg-green-600 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
+            className="swiper-button-prev-custom bg-green-500 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
           >
             <BsChevronLeft className="w-6 h-6" />
           </button>
           <button
-            className="swiper-button-next-custom bg-green-600 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
+            className="swiper-button-next-custom bg-green-500 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
           >
             <BsChevronRight className="w-6 h-6" />
           </button>

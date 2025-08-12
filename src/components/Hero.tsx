@@ -3,7 +3,6 @@ import TestimonialsSection from './TestimonialsSection';
 import SimpleSwiper from './SimpleSwiper';
 import ProductCard from '../pages/ProductCard';
 import ProductData from '../pages/ProductData';
-import Background from './Background';
 
 const Hero = () => {
   return (

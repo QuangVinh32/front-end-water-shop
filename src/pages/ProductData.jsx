@@ -1,4 +1,4 @@
- import TraSua01 from '../assets/tra-sua-01.png';
+import TraSua01 from '../assets/tra-sua-01.png';
 import TraSua02 from '../assets/tra-sua-02.png';
 import TraSua03 from '../assets/tra-sua-03.png';
 import TraSua04 from '../assets/tra-sua-04.png';

@@ -90,7 +90,7 @@ const ContactPage = () => {
               width="100%"
               height="100%"
               style={{ border: 0, borderRadius: '1rem', minHeight: '400px' }}
-              allowFullScreen=""
+              allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>

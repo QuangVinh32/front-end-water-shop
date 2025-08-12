@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiShoppingCart } from 'react-icons/fi'
-import { useCart } from '../context/CartProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('#home')
-  const { cartCount } = useCart();
 
   const navLinks = [
     { href: "/home", label: "Trang chủ" },
@@ -53,16 +51,18 @@ const Navbar = () => {
         <div className='flex items-center gap-4'>
           <button className="relative hover:bg-gray-200 p-2 rounded-xl transition">
             <FiShoppingCart size={20} />
-            {cartCount > 0 && (
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
-                {cartCount}
               </span>
-            )}
           </button>
 
-          <button className="hidden md:block bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 text-sm font-medium mr-10 transition-all hover:shadow-lg hover:shadow-blue-100">
-            <a href="#newsletter">Hội Viên</a>
+          <button
+            className="hidden md:block bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 text-sm font-medium mr-10 transition-all hover:shadow-lg hover:shadow-blue-100"
+            onClick={() => window.location.href = "/auth"}
+          >
+            Đăng nhập
           </button>
+
+
         </div>
       </div>
 

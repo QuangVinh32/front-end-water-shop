@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ProductCard from '../pages/ProductCard';
-import ProductFilter from '../pages/ProductFilter';
-import ProductPagination from '../pages/ProductPagination';
-import ProductData from '../pages/ProductData';
+import ProductCard from './ProductCard';
+import ProductFilter from './ProductFilter';
+import ProductPagination from './ProductPagination';
+import ProductData from './ProductData';
 
 const ProductPage = () => {
   const [searchTerm, setSearchTerm] = useState('');

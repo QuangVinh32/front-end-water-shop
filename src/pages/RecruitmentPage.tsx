@@ -9,7 +9,7 @@ import {
     FaMapMarkerAlt,
 } from "react-icons/fa";
 
-import jobPositions from "../pages/jobData";
+import jobPositions from "./jobData";
 
 const iconMap = {
     coffee: <FaCoffee className="text-amber-600" />,
