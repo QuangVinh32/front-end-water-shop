@@ -3,6 +3,7 @@ import TestimonialsSection from './TestimonialsSection';
 import SimpleSwiper from './SimpleSwiper';
 import ProductCard from '../pages/ProductCard';
 import ProductData from '../pages/ProductData';
+import CategorySwiper from './CategorySwiper';
 
 const Hero = () => {
 
@@ -15,7 +16,7 @@ const Hero = () => {
   // const printdate = (0, utils_1.date_to_word)(new Date());
 
   console.log(date);
-  console.log("hi guys",day, month, year,hours, now.getMinutes(), now.getSeconds());
+  console.log("hi guys", day, month, year, hours, now.getMinutes(), now.getSeconds());
 
   return (
     <>
@@ -24,6 +25,12 @@ const Hero = () => {
         className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 sm:pt-10 pt-12 max-w-7xl mx-auto"
       >
         <SimpleSwiper />
+      </section>
+      <section
+        id="category"
+        className="px-4 sm:px-6 lg:px-8 sm:pt-8 pt-8 max-w-7xl mx-auto"
+      >
+        <CategorySwiper />
       </section>
 
       <div className="text-center mt-8">
