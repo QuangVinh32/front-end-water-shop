@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
       className="scroll-mt-24 pt-8 pb-10 px-4 max-w-7xl mx-auto"
     >
       <div className="text-center">
-        <h2 className="text-3xl text-green-600 md:text-4xl font-bold mb-4">
+        <h2 className="text-2xl text-green-600 md:text-3xl font-bold mb-4">
           Khách hàng nói gì về chúng tôi
         </h2>
         <p className="text-gray-600">
@@ -81,7 +81,7 @@ const TestimonialsSection = () => {
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className='h-full md:py-6 py-4'>
-              <div className="text-center bg-white p-4 rounded-lg shadow-md h-full flex flex-col">
+              <div className="text-center bg-white p-4 shadow-md h-full flex flex-col">
                 <div className="w-24 h-24 mx-auto mb-4">
                   <img
                     src={testimonial.image}
@@ -110,12 +110,12 @@ const TestimonialsSection = () => {
         {/* Custom Navigation Buttons */}
         <div className="flex justify-center gap-4 sm:mt-0 mt-2">
           <button
-            className="swiper-button-prev-custom bg-green-500 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
+            className="swiper-button-prev-custom bg-gray-200 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
           >
             <BsChevronLeft className="w-6 h-6" />
           </button>
           <button
-            className="swiper-button-next-custom bg-green-500 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
+            className="swiper-button-next-custom bg-gray-200 w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
           >
             <BsChevronRight className="w-6 h-6" />
           </button>

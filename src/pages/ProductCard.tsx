@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom';
+import { Star, ShoppingCart } from 'lucide-react';
+import SingleFillStar from './SingleFillStar';
 
 const ProductCard = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-300 p-4 mt-4 group cursor-pointer">
+      <div className=" overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-300 p-4 mt-4 group cursor-pointer">
         {/* Hình ảnh */}
-        <div className="overflow-hidden rounded-lg relative">
+        <div className="overflow-hidden relative">
           <img
-            src={product.image[0]} // ✅ lấy ảnh đầu tiên
+            src={product.image[0]}
             alt={product.name}
-            className="w-full h-48 object-cover rounded-lg transform group-hover:scale-110 transition-transform duration-300"
+            className="w-full h-48 object-cover  transform group-hover:scale-110 transition-transform duration-300"
           />
           
           {/* Trạng thái còn hàng / hết hàng */}
           <span
-            className={`absolute top-2 left-2 text-xs px-2 py-1 rounded font-medium ${
+            className={`absolute top-2 left-2 text-xs px-2 py-1 font-medium ${
               product.inStock ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
             }`}
           >
@@ -24,10 +26,11 @@ const ProductCard = ({ product }) => {
 
         {/* Đánh giá + số đã bán */}
         <div className="mt-3 text-sm text-gray-600 flex items-center gap-1">
-          <span className="text-yellow-500 font-semibold">{product.rating}</span>
-          <span>⭐</span>
-          <span className="text-gray-500">| Đã bán {product.sold}</span>
-        </div>
+        <span className="text-yellow-400 font-semibold">{product.rating}</span>
+        <SingleFillStar rating={product.rating} />
+        <span className="text-gray-500">| Đã bán {product.sold}</span>
+      </div>
+
 
         {/* Tên sản phẩm */}
         <h3 className="font-medium flex items-center text-gray-800 mt-1 overflow-hidden text-ellipsis whitespace-nowrap">
@@ -35,7 +38,7 @@ const ProductCard = ({ product }) => {
         </h3>
 
         {/* Giá */}
-        <div className="mt-2 flex items-center gap-2">
+        <div className="flex items-center gap-2">
           {product.originalPrice && (
             <span className="line-through text-gray-400 text-sm">
               {product.originalPrice.toLocaleString()}₫

@@ -6,11 +6,11 @@ const categories = [
 
 const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelectedCategory }) => {
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between border-1 border-gray-200 bg-white p-4 rounded-xl shadow-md">
+    <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between border-1 border-gray-200 bg-white p-4">
 
       {/* Tìm kiếm */}
       <div className="w-full md:w-1/4">
-        <div className="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm focus-within:ring-1 focus-within:ring-green-500 transition">
+        <div className="flex items-center border border-gray-300  overflow-hidden shadow-sm focus-within:ring-1 focus-within:ring-green-500 transition">
           <div className="px-3 text-gray-400">
             <svg
               className="h-5 w-5"
@@ -39,8 +39,8 @@ const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelecte
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-1.5 rounded-full text-sm border transition whitespace-nowrap ${selectedCategory === cat
-                ? 'bg-green-500 text-white border-green-500 shadow-sm'
+              className={`px-4 py-1.5 text-sm border transition whitespace-nowrap ${selectedCategory === cat
+                ? 'bg-gradient-to-r from-blue-500 to-green-500  text-white border-green-600 shadow-sm'
                 : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-green-100 hover:text-green-700'
                 }`}
             >

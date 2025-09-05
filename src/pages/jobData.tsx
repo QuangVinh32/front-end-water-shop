@@ -1,11 +1,10 @@
 import { FaCoffee, FaCocktail, FaCheckCircle, FaStar, FaPaperPlane, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
-const jobPositions = [
+const JobPositions = [
     {
         id: 1,
         title: "Nhân viên bồi bàn",
         iconType: "coffee", 
-
         deadline: "30/08/2025",
         requirements: [
             "Giao tiếp tốt, thân thiện và năng động",
@@ -47,4 +46,4 @@ const jobPositions = [
     }
 ];
 
-export default jobPositions;
+export default JobPositions;

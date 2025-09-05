@@ -23,7 +23,6 @@ const Navbar = () => {
           <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75"></div>
           <div className="w-4 h-4 bg-green-500 rounded-full -ml-2"></div>
         </div>
-
         {/* Mobile Menu Button */}
         <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? (
@@ -32,7 +31,6 @@ const Navbar = () => {
             <HiMenu className="h-6 w-6" />
           )}
         </button>
-
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, index) => (
@@ -46,26 +44,22 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-
         {/* Cart + Button */}
         <div className='flex items-center gap-4'>
           <button className="relative hover:bg-gray-200 p-2 rounded-xl transition">
             <FiShoppingCart size={20} />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
-              </span>
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
+            </span>
           </button>
-
           <button
-            className="hidden md:block bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 text-sm font-medium mr-10 transition-all hover:shadow-lg hover:shadow-blue-100"
+            className="hidden md:block mr-10 rounded-sm bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2.5 shadow-md hover:shadow-lg hover:shadow-green-500/40 
+             transition duration-300"
             onClick={() => window.location.href = "/auth"}
           >
             Đăng nhập
           </button>
-
-
         </div>
       </div>
-
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 py-4">

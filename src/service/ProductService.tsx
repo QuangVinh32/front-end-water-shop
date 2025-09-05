@@ -11,9 +11,9 @@ const productService = {
   get(id: number) {
     return request.get(END_POINT + "find-by-id/" + id);
   },
-//   create(payload: CreateProduct) {
-//     return request.post(END_POINT + "create-product/", payload);
-//   },
+  // create(payload: CreateProduct) {
+  //   return request.post(END_POINT + "create-product/", payload);
+  // },
   update(id: number, payload: any) {
     return request.put(END_POINT + "update-product/" + id, payload);
   },

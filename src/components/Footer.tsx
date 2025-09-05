@@ -73,7 +73,7 @@ const Footer = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
-                  <h3 className="text-lg font-medium mb-4 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg text-white text-center">
+                  <h3 className="text-lg mb-4 bg-gradient-to-r from-blue-500 to-green-500  text-white border-green-600">
                     {categoryTitles[category]}
                   </h3>
                   <ul className="space-y-3">

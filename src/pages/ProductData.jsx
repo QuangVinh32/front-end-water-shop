@@ -17,9 +17,9 @@ const ProductData = [
     category: "Trà trái cây",
     originalPrice: 25000,
     salePrice: 18000,
-    rating: 4.7,
+    rating:3,
     sold: 312,
-    image: [Tra01],
+    image: [Tra01,Tra02,TraSua01],
     inStock: true,
     description: "Trà đào thơm mát với hương vị đào tự nhiên, giúp giải nhiệt hiệu quả trong những ngày nắng nóng."
   },
@@ -43,7 +43,7 @@ const ProductData = [
     salePrice: 30000,
     rating: 4.8,
     sold: 231,
-    image: [Kem01],
+    image: [Kem01,Kem02,Tra01,Tra02],
     inStock: false,
     description: "Nước ép cam nguyên chất 100%, giàu vitamin C, tăng cường đề kháng và thanh lọc cơ thể."
   },
@@ -55,9 +55,9 @@ const ProductData = [
     salePrice: 28000,
     rating: 4.6,
     sold: 198,
-    image: [Kem02],
+    image: [Kem02,TraSua02,Kem02,Tra01,Tra02],
     inStock: true,
-    description: "Kem vani mịn màng, ngọt dịu với hương vani tự nhiên, tan chảy trong miệng."
+    description: "Recognising the importance of play is not new: over two millennia ago, the Greek philosopher Plato extolled its virtues as a means of developing skills for adult life, and ideas about play-based learning have been developing since the 19th century.But we live in changing times, and Whitebread is mindful of a worldwide decline in play, pointing out that over half the people in the world now live in cities. ‘The opportunities for free play, which I experienced almost every day of my childhood, are becoming increasingly scarce,’ he says. Outdoor play is curtailed by perceptions of risk to do with traffic, as well as parents’ increased wish to protect their children from being the victims of crime, and by the emphasis on ‘earlier is better’ which is leading to greater competition in academic learning and schools.International bodies like the United Nations and the European Union have begun to develop policies concerned with children’s right to play, and to consider implications for leisure facilities and educational programmes. But what they often lack is the evidence to base policies on."
   },
   {
     id: 5,

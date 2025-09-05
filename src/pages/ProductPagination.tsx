@@ -23,7 +23,7 @@ const ProductPagination = ({ currentPage, totalPages, onPageChange }) => {
           key={page}
           onClick={() => onPageChange(page)}
           className={`w-9 h-9 rounded-full font-medium text-sm transition-all border ${currentPage === page
-            ? 'bg-green-600 text-white border-green-600'
+            ? 'bg-gradient-to-r from-blue-500 to-green-500  text-white border-green-600'
             : 'bg-white text-gray-700 hover:bg-blue-100 hover:text-green-600 border-gray-300'
             }`}
         >

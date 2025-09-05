@@ -5,51 +5,36 @@ import ProductCard from '../pages/ProductCard';
 import ProductData from '../pages/ProductData';
 
 const Hero = () => {
+
+  const now = new Date();
+  const day = now.getDate();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
+  const hours = now.getHours();
+  const date = `Ngày ${day} Tháng ${month} Năm ${year}`;
+  // const printdate = (0, utils_1.date_to_word)(new Date());
+
+  console.log(date);
+  console.log("hi guys",day, month, year,hours, now.getMinutes(), now.getSeconds());
+
   return (
     <>
-      <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-20 pb-2 max-w-7xl mx-auto box-border">
-        {/* Cột trái */}
-        <div className="w-full md:w-1/2 space-y-8">
-          {/* Huy hiệu sao */}
-          <div className="flex items-center gap-2 bg-yellow-500 w-fit px-4 py-2 rounded-full hover:bg-white transition-colors cursor-pointer group">
-            <span className="text-white group-hover:scale-110 transition-transform">★</span>
-            <span className="text-sm font-medium text-white group-hover:text-yellow-500">Thương hiệu đồ uống yêu thích</span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Chào mừng đến với{' '}
-            <span className="text-green-600 inline-block relative">
-              Quán nước giải khát
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-200/60"></span>
-            </span>{' '}
-            của chúng tôi!
-            <span className="inline-block ml-2 animate-pulse">🍹</span>
-          </h1>
-
-          <p className="text-lg md:text-xl max-w-xl text-gray-700">
-            Thưởng thức trà chanh, trà sữa, nước ép, soda, cà phê và nhiều loại thức uống thơm ngon khác – phục vụ nhanh chóng, giá cả hợp lý, không gian thoáng mát.
-          </p>
-
-          {/* Button ở giữa */}
-          <div className="flex gap-3 max-w-md ">
-            <input
-              type="email"
-              placeholder="Nhập email để nhận ưu đãi"
-              className="flex-1 px-6 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition-all text-gray-600"
-            />
-            <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-8 py-2 rounded-xl hover:bg-green-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-green-100 active:scale-95">
-              Đăng ký
-            </button>
-          </div>
-        </div>
-
-        {/* Cột phải - Hình ảnh */}
-        <div className="w-full md:w-1/2 mt-16 md:mt-0 pl-0 md:pl-0">
-          <SimpleSwiper />
-        </div>
+      <section
+        id="home"
+        className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 sm:pt-10 pt-12 max-w-7xl mx-auto"
+      >
+        <SimpleSwiper />
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-2">
+      <div className="text-center mt-8">
+        <h2 className="text-2xl text-green-600 md:text-3xl font-bold ">
+          Danh sách sản phẩm nổi bật
+        </h2>
+        {/* <p className="text-gray-600">
+          Những điều khiến họ yêu thích dịch vụ của chúng tôi
+        </p> */}
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  mt-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {ProductData.slice(0, 10).map((product) => (
             <div key={product.id}>
@@ -59,16 +44,19 @@ const Hero = () => {
         </div>
         <Link
           to="/product"
-          className="text-center bg-gradient-to-r from-blue-500 to-green-500 mt-8 text-white rounded-xl text-lg cursor-pointer w-[150px] mx-auto h-[50px] flex items-center justify-center hover:bg-green-700"
+          className="text-center bg-gradient-to-r from-blue-500 to-green-500 
+             mt-8 text-white text-lg cursor-pointer w-[150px] mx-auto h-[50px] 
+             flex items-center justify-center rounded-sm 
+             shadow-md hover:shadow-lg hover:shadow-green-500/40 
+             transition duration-300"
         >
           Xem tất cả
         </Link>
-      </div>
-      {/* <Background/> */}
 
+      </div>
       <TestimonialsSection />
+
     </>
   )
 }
-
 export default Hero
