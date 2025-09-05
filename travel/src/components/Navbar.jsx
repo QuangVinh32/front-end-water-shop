@@ -1,0 +1,89 @@
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import logo from "../assets/images/logo.png";
+
+const navItems = [
+  { name: "Trang chủ", href: "#hero" },
+  { name: "Giới thiệu Về tôi", href: "#about" },
+  { name: "Kỹ năng", href: "#skills" },
+  { name: "Dự án", href: "#projects" },
+  { name: "Học vấn", href: "#education" },
+  { name: "Liên hệ", href: "#contact" },
+];
+
+export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      {/* Navbar */}
+      <nav
+        className={cn(
+          "fixed w-full z-60 transition-all duration-300 bg-white"
+        )}
+      >
+        <div className="container flex items-center justify-between">
+          <div className="">
+              <img src={logo} alt="logo" className="mx-auto lg:mx-0 w-40" />
+            </div>
+          {/* desktop nav */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-foreground/80 hover:text-orange-400 transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          {/* mobile button */}
+          <button
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="md:hidden p-2 text-foreground z-70"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile menu overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out transform",
+          isMenuOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-full pointer-events-none"
+        )}
+      >
+
+        <div className="flex flex-col space-y-8 text-xl">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-foreground/80 hover:text-orange-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
