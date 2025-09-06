@@ -58,7 +58,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-28 mb-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-22 sm:mt-28 mb-12">
       {/* Breadcrumb */}
       <nav className="flex mb-6 text-sm" aria-label="Breadcrumb">
         <ol className="flex items-center flex-wrap gap-2">
