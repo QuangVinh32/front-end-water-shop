@@ -1,6 +1,17 @@
 import React from 'react'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
-
+import {  FaTwitter, FaLinkedinIn, } from 'react-icons/fa'
+import {
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Facebook,
+  Phone,
+  Send,
+  Twitch,
+  Twitter,
+  User, MessageSquare,
+} from "lucide-react";  
 const Footer = () => {
   const footerLinks = {
     company: [
@@ -46,25 +57,22 @@ const Footer = () => {
             <p className="text-gray-600 mb-6">
               Chúng tôi phục vụ trà chanh, trà sữa, nước ép, soda, cafe và nhiều loại thức uống thơm ngon khác. Không gian thân thiện, phục vụ tận tình.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors"
-              >
-                <FaFacebookF className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-400 hover:text-white transition-colors"
-              >
-                <FaTwitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-700 hover:text-white transition-colors"
-              >
-                <FaLinkedinIn className="w-5 h-5" />
-              </a>
+              <div className="flex justify-center gap-5">
+                {[
+                  { icon: <Facebook/>, href: "#" },
+                  { icon: <Phone />, href: "#" },
+                  { icon: <Instagram />, href: "#" },
+                  { icon: <Twitch />, href: "#" },
+                ].map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.href}
+                    target="_blank"
+                    className="p-3 rounded-full bg-muted text-foreground hover:bg-green-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    {item.icon}
+                  </a>
+                ))}
             </div>
           </div>
 

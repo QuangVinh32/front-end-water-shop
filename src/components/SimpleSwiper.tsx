@@ -43,7 +43,7 @@ const SimpleSwiper = () => {
             <img
               src={slide.image}
               alt={`Slide ${slide.id}`}
-              className="h-[250px] sm:h-[450px] w-full"
+              className="h-[250px] sm:h-[490px] w-full"
             />
           </SwiperSlide>
         ))}

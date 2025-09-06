@@ -42,7 +42,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="max-w-screen-xl flex items-center justify-center bg-gray-50">
+      <div className="max-w-screen-xl flex items-center justify-center bg-gray-50 ">
         <div className="text-center p-8 bg-white rounded-xl shadow-md max-w-md mx-auto">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Không tìm thấy sản phẩm</h2>
           <p className="text-gray-600 mb-6">Sản phẩm bạn đang tìm không tồn tại hoặc đã bị xóa.</p>
@@ -58,7 +58,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 mb-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-28 mb-12">
       {/* Breadcrumb */}
       <nav className="flex mb-6 text-sm" aria-label="Breadcrumb">
         <ol className="flex items-center flex-wrap gap-2">

@@ -27,21 +27,21 @@ const ProductFilter = ({ searchTerm, setSearchTerm, selectedCategory, setSelecte
             placeholder="Tìm kiếm nước uống..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full py-2 pr-4 bg-white text-base md:text-sm focus:outline-none"
+            className="w-full py-2 pr-4 bg-white text-base md:text-sm focus:outline-none"
           />
         </div>
       </div>
 
       {/* Danh mục */}
-      <div className="w-full md:w-3/4 overflow-x-auto">
-        <div className="flex gap-2 flex-nowrap whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+      <div className="w-full md:w-3/4 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-2 flex-nowrap whitespace-nowrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-1.5 text-sm border transition whitespace-nowrap ${selectedCategory === cat
-                ? 'bg-gradient-to-r from-blue-500 to-green-500  text-white border-green-600 shadow-sm'
-                : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-green-100 hover:text-green-700'
+                  ? "bg-gradient-to-r from-blue-500 to-green-500 text-white border-green-600 shadow-sm"
+                  : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-green-100 hover:text-green-700"
                 }`}
             >
               {cat}

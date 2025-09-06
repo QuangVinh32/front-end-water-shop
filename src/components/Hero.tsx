@@ -22,7 +22,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 sm:pt-10 pt-12 max-w-7xl mx-auto"
+        className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 sm:pt-22 pt-18 max-w-7xl mx-auto"
       >
         <SimpleSwiper />
       </section>
@@ -37,9 +37,7 @@ const Hero = () => {
         <h2 className="text-2xl text-green-600 md:text-3xl font-bold ">
           Danh sách sản phẩm nổi bật
         </h2>
-        {/* <p className="text-gray-600">
-          Những điều khiến họ yêu thích dịch vụ của chúng tôi
-        </p> */}
+
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  mt-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
@@ -59,10 +57,8 @@ const Hero = () => {
         >
           Xem tất cả
         </Link>
-
       </div>
       <TestimonialsSection />
-
     </>
   )
 }
