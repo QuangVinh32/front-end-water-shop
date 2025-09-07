@@ -35,15 +35,7 @@ request.interceptors.response.use(
   }
 );
 
-// Lưu user (kèm token) vào localStorage
-export const setUserInfo = (user: any) => {
-  localStorage.setItem("user", JSON.stringify(user));
-};
 
-// Xóa user khỏi localStorage (dùng khi logout)
-export const removeUserInfo = () => {
-  localStorage.removeItem("user");
-};
 
 
 export default request;
