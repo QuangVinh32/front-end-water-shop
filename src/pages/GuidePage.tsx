@@ -1,4 +1,5 @@
 import CompanyLogo from "../components/CompanyLogo";
+import TestApi from "./TestApi";
 
 export default function GuidePage() {
   const steps = [
@@ -106,6 +107,8 @@ export default function GuidePage() {
             </div>
           ))}
         </div>
+
+           <TestApi/>
 
         {/* Call to action */}
         {/* <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto border border-gray-100 shadow-lg">

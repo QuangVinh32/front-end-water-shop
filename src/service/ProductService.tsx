@@ -1,10 +1,10 @@
 import request from "./AxiosClient";
 
-const END_POINT = "v1/product/";
+const END_POINT = "/products/";
 
 const productService = {
   getAll(params: any) {
-    return request.get(END_POINT + "find-all-product", {
+    return request.get(END_POINT + "get-all", {
       params,
     });
   },

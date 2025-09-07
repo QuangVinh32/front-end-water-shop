@@ -59,6 +59,7 @@ const Hero = () => {
         </Link>
       </div>
       <TestimonialsSection />
+   
     </>
   )
 }
