@@ -20,7 +20,7 @@ export default function CategorySwiper() {
             <Swiper
                 modules={[Navigation]}
                 navigation
-                slidesPerView={4}
+                slidesPerView={5}
                 spaceBetween={10}
                 breakpoints={{
                     480: { slidesPerView: 3, spaceBetween: 15 },
@@ -40,7 +40,6 @@ export default function CategorySwiper() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-
         </div>
     );
 }

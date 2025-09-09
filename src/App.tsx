@@ -2,7 +2,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import ThemeToggle from './components/ThemeToggle'
 import Hero from './components/Hero'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
@@ -40,7 +39,7 @@ function App() {
   return (
     <Router>
       <Layout>
-        <ToastContainer position="top-right" autoClose={3000} />
+        <ToastContainer position="top-right" autoClose={1000} />
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/home" element={<Hero />} />
@@ -50,7 +49,6 @@ function App() {
           <Route path="/about" element={<GuidePage />} />
           <Route path="/recruitment" element={<RecruitmentPage />} />
           <Route path="/auth" element={<AuthPage />} />
-
           {/* Admin */}
           <Route path="/admin/*" element={<AdminDashboard />} />
         </Routes>

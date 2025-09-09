@@ -150,9 +150,9 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-3">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link, index) => (
-                <a
+                <Link
                   key={index}
-                  href={link.href}
+                  to={link.href}
                   className={`px-4 py-3 text-base font-medium rounded-lg transition-colors ${isActiveLink(link.href)
                     ? "text-blue-600 bg-blue-50"
                     : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
@@ -160,7 +160,7 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               {!user && (

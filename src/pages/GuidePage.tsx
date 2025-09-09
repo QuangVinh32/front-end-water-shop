@@ -108,23 +108,9 @@ export default function GuidePage() {
           ))}
         </div>
 
-           <TestApi/>
+           {/* <TestApi/> */}
 
-        {/* Call to action */}
-        {/* <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto border border-gray-100 shadow-lg">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-6 md:mb-0 md:mr-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">Sẵn sàng đặt hàng?</h3>
-              <p className="text-gray-600">Khám phá hàng trăm sản phẩm đồ uống chất lượng</p>
-            </div>
-            <button className="bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105 flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              Mua hàng ngay
-            </button>
-          </div>
-        </div> */}
+
       </div>
       <CompanyLogo />
     </div>

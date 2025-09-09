@@ -21,8 +21,9 @@ const TestApi = () => {
 
 
     return (
+        <div>  <h1 className="text-3xl font-mono text-green-400">hello 133</h1>
         <div className="grid grid-cols-3 gap-4 p-4">
-            <h1>hello 133</h1>
+           
             {products.map((p, idx) => (
                 <div key={idx} className="border rounded-xl p-4 shadow">
                     {/* <img
@@ -39,6 +40,7 @@ const TestApi = () => {
                     <p className="text-sm">Số lượng: {p.quantity}</p>
                 </div>
             ))}
+        </div>
         </div>
     );
 };

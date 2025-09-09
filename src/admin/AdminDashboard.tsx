@@ -101,7 +101,7 @@ const AdminDashboard = () => {
       case "dashboard":
         return <DashboardPage stats={stats} />;
       case "users":
-        return <UsersPage />;
+        // return <UsersPage />;
       case "products":
         return <ProductsPage />;
       case "orders":
@@ -409,12 +409,12 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, color }) => {
 };
 
 // Placeholder Components for other pages
-const UsersPage = () => (
-  <div className="bg-white p-4 rounded-lg shadow">
-    <h2 className="text-lg font-semibold mb-4">Quản lý người dùng</h2>
-    <p>Nội dung quản lý người dùng sẽ được hiển thị ở đây.</p>
-  </div>
-);
+// const UsersPage = () => (
+//   <div className="bg-white p-4 rounded-lg shadow">
+//     <h2 className="text-lg font-semibold mb-4">Quản lý người dùng</h2>
+//     <p>Nội dung quản lý người dùng sẽ được hiển thị ở đây.</p>
+//   </div>
+// );
 
 const ProductsPage = () => (
   <div className="bg-white p-4 rounded-lg shadow">

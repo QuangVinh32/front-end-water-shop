@@ -42,6 +42,8 @@ const ProductPage = () => {
         totalPages={totalPages}
         onPageChange={setCurrentPage}
       />
+      
+
 
 
 
