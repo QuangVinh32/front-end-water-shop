@@ -26,11 +26,11 @@ const TestApi = () => {
            
             {products.map((p, idx) => (
                 <div key={idx} className="border rounded-xl p-4 shadow">
-                    {/* <img
-                        // src={`${p.productImages[0]}`}
+                    <img
+                        src={`${p.productImages[0]}`}
                         alt={p.productName}
                         className="w-full h-40 object-cover rounded-lg"
-                    /> */}
+                    />
                     <h3 className="mt-2 text-lg font-bold">{p.productName}</h3>
                     <p className="text-gray-600">{p.description}</p>
                     <p className="mt-1 text-green-600 font-semibold">
