@@ -33,7 +33,7 @@ const ProductData = [
     sold: 483,
     image: [TraSua01, TraSua02, TraSua03, TraSua04],
     inStock: true,
-    description: "Trà sữa truyền thống đậm đà vị trà, hòa quyện cùng vị béo nhẹ của sữa, thích hợp cho mọi lứa tuổi."
+  description: "Trà sữa truyền thống đậm đà vị trà, hòa quyện cùng vị béo nhẹ của sữa, thích hợp cho mọi lứa tuổi. Hương vị thơm ngon, dễ uống, là lựa chọn phổ biến nhất tại quán chúng tôi. Được pha chế từ nguyên liệu chọn lọc, đảm bảo an toàn và chất lượng. Uống lạnh sẽ giúp bạn cảm thấy sảng khoái, uống nóng lại mang đến cảm giác ấm áp. Đây là món đồ uống phù hợp để thưởng thức mọi lúc, mọi nơi, từ những buổi trò chuyện cùng bạn bè cho đến khi bạn cần thư giãn một mình."
   },
   {
     id: 3,

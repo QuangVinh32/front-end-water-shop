@@ -76,16 +76,16 @@ const ProductDetail = () => {
 
       {/* Product Detail */}
       <div className="shadow border-gray-200 border-1 p-6">
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 bg">
           {/* Images */}
           <div className="lg:w-1/4 flex flex-col">
-            <div className="p-4 aspect-square flex items-center justify-center">
+            <div className="aspect-square flex items-center justify-center">
               <img src={selectedImage} alt={product.name} className="w-full h-full object-contain " />
             </div>
-            <div className="mt-4">
+            <div className="mt-10">
               <Swiper
                 spaceBetween={10}
-                slidesPerView={4}   // mặc định hiển thị 4 ảnh
+                slidesPerView={4}
                 grabCursor={true}
               >
                 {product.image.map((imgUrl, i) => (
@@ -108,9 +108,11 @@ const ProductDetail = () => {
           </div>
 
           {/* Info */}
-          <div className="lg:w-3/5 flex flex-col justify-between">
+          <div className="lg:w-3/4 flex flex-col justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
+              <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 bg-clip-text text-transparent drop-shadow-md tracking-tight">
+                {product.name}
+              </h1>
               <div className="flex items-center gap-2 mt-2">
                 <span className="bg-gradient-to-r from-blue-500 to-green-500  text-white border-green-600 text-xs font-semibold px-3 py-1 ">{product.category}</span>
                 <span className={`text-xs font-semibold px-3 py-1 ${product.inStock ? 'bg-green-100 text-green-700' : 'bg-red-600 text-white'}`}>
@@ -130,18 +132,23 @@ const ProductDetail = () => {
 
 
               {/* Mô tả */}
-              <div className="mt-6 bg-gray-50 p-4 rounded-lg">
-                <h2 className="font-semibold text-gray-900 mb-2">Mô tả sản phẩm</h2>
-                <p className="text-gray-700 leading-relaxed line-clamp-3">{product.description}</p>
+              <div className="flex flex-col mt-4 rounded-lg">
+                <h2 className="font-semibold text-blue-500 mb-2">
+                  Mô tả sản phẩm
+                </h2>
+                <p className="text-gray-700 text-left font-sans text-sm leading-relaxed line-clamp-6 ">
+                  {product.description}
+                </p>
               </div>
+
             </div>
 
             {/* Buttons */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <button className="flex-1 flex items-center justify-center gap-2 bg-green-600 text-white rounded-lg py-3 font-medium hover:bg-green-700 transition">
+            <div className=" flex flex-col sm:flex-row gap-2 mb-1">
+              <button className="flex-1 flex items-center justify-center bg-green-500 text-white rounded-lg py-3 font-medium hover:bg-green-700 transition">
                 🛒 Thêm vào giỏ hàng
               </button>
-              <button className="flex-1 flex items-center justify-center gap-2 bg-yellow-400 text-gray-900 rounded-lg py-3 font-medium hover:bg-yellow-500 transition">
+              <button className="flex-1 flex items-center justify-center bg-blue-500 text-gray-900 rounded-lg py-3 font-medium hover:bg-blue-700 transition">
                 ⚡ Mua ngay
               </button>
             </div>
