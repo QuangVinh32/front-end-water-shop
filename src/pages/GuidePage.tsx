@@ -2,6 +2,8 @@ import CompanyLogo from "../components/CompanyLogo";
 import TestApi from "./TestApi";
 
 export default function GuidePage() {
+  const a = "Lê Quang Vinh";
+  console.log(a.toLocaleUpperCase());
   const steps = [
     {
       title: '1. Chọn sản phẩm nước uống',
@@ -29,9 +31,6 @@ export default function GuidePage() {
     <div className="relative py-10 px-4 mt-20 text-center overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-10">
-          {/* <div className="inline-block bg-gradient-to-r from-blue-600 to-green-500 text-white px-6 py-2 rounded-lg mb-4 text-sm font-medium">
-            Hướng dẫn đặt hàng
-          </div> */}
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
             <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
               Quy trình mua hàng đơn giản
@@ -48,37 +47,24 @@ export default function GuidePage() {
               key={index}
               className="group relative bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
             >
-              {/* Line between steps (desktop only) */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
                   <div className="w-16 h-1 bg-gray-200 group-hover:bg-green-500 transition-colors duration-500 rounded-full"></div>
                   <div className="absolute top-1/2 right-0 transform translate-y-[-50%] w-4 h-4 rounded-full bg-gray-300 group-hover:bg-green-500 transition-colors duration-500"></div>
                 </div>
               )}
-
-              {/* Step number (top-right) */}
               <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gradient-to-r from-blue-100 to-green-100 flex items-center justify-center text-gray-700 font-bold">
                 {index + 1}
               </div>
-
-              {/* Icon (hiển thị tự nhiên, không bao trong hình tròn nữa) */}
               <div className="mb-6 text-5xl">{step.icon}</div>
-
-              {/* Title & Description */}
               <h3 className="font-bold text-xl text-gray-800 mb-3 text-center">{step.title}</h3>
               <p className="text-sm text-gray-600 text-center">{step.description}</p>
-
-              {/* Thanh dưới hover: bo tròn hai đầu */}
-              {/* <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div> */}
             </div>
           ))}
 
         </div>
-
-        {/* Timeline for mobile */}
         <div className="lg:hidden relative mb-16 mx-4">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 to-green-500"></div>
-
           {steps.map((step, index) => (
             <div key={index} className="flex items-center mb-12 last:mb-0">
               {index % 2 === 0 ? (
@@ -107,9 +93,9 @@ export default function GuidePage() {
             </div>
           ))}
         </div>
+        <TestApi />
 
-           <TestApi/>
-
+        <img src="http://localhost:8080/files/image/1757742701106.jpg" />
 
       </div>
       <CompanyLogo />

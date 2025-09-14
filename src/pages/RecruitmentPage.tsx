@@ -129,8 +129,8 @@ const RecruitmentPage = () => {
                 <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500 mb-6">
                     Môi trường làm việc
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-6xl mx-auto">
-                    {[1, 2, 3, 4, 5].map((item) => (
+                <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-6xl mx-auto">
+                    {[1, 2, 3, 4, 5, 6].map((item) => (
                         <div key={item} className="aspect-square bg-gray-200 border-2 border-dashed rounded-xl flex items-center justify-center">
                             <span className="text-gray-500">Hình ảnh {item}</span>
                         </div>
