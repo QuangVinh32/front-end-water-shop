@@ -20,8 +20,7 @@ const TestApi = () => {
     return (
         <div>
             <div className="grid grid-cols-3 gap-4 p-4">
-                <img src="http://localhost:8080/files/image/16944923123.jpg" />
-
+                
                 {products.map((p, idx) => (
                     <div key={idx} className="border rounded-xl p-4 shadow">
                         <img

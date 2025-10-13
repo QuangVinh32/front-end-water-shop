@@ -110,7 +110,7 @@ const ProductDetail = () => {
           {/* Info */}
           <div className="lg:w-3/4 flex flex-col justify-between">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 bg-clip-text text-transparent drop-shadow-md tracking-tight">
+              <h1 className="text-3xl md:pb-0 pb-4 sm:text-4xl font-extrabold bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 bg-clip-text text-transparent drop-shadow-md tracking-tight">
                 {product.name}
               </h1>
               <div className="flex items-center gap-2 mt-2">
@@ -144,7 +144,7 @@ const ProductDetail = () => {
             </div>
 
             {/* Buttons */}
-            <div className=" flex flex-col sm:flex-row gap-2 mb-1">
+            <div className=" flex flex-col sm:flex-row gap-2 md:mt-0 mt-4 mb-1.5">
               <button className="flex-1 flex items-center justify-center bg-green-500 text-white rounded-lg py-3 font-medium hover:bg-green-700 transition">
                 🛒 Thêm vào giỏ hàng
               </button>
@@ -172,7 +172,6 @@ const ProductDetail = () => {
             <span className="text-gray-600 text-sm">{totalReviews} đánh giá</span>
           </div>
         </div>
-
         <div className="space-y-4">
           {totalReviews > 0 ? (
             productReviews.map((r, i) => (

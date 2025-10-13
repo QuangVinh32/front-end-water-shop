@@ -94,9 +94,6 @@ export default function GuidePage() {
           ))}
         </div>
         <TestApi />
-
-        <img src="http://localhost:8080/files/image/1757742701106.jpg" />
-
       </div>
       <CompanyLogo />
     </div>
