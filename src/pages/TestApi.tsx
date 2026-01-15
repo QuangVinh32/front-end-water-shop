@@ -30,9 +30,9 @@ const TestApi = () => {
                         />
                         <h3 className="mt-2 text-lg font-bold">{p.productName}</h3>
                         <p className="text-gray-600">{p.description}</p>
-                        <p className="mt-1 text-green-600 font-semibold">
+                        {/* <p className="mt-1 text-green-600 font-semibold">
                             {p.price.toLocaleString()} đ
-                        </p>
+                        </p> */}
                         <p className="text-sm text-red-500">Giảm giá: {p.discount}%</p>
                         <p className="text-sm">Số lượng: {p.quantity}</p>
                     </div>

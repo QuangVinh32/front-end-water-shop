@@ -1,5 +1,5 @@
 // App.jsx
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, LayoutRouteProps } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify'
 import AdminDashboard from './admin/AdminDashboard'
 // App.jsx
-function Layout({ children }) {
+function Layout({ children }:LayoutRouteProps) {
   const location = useLocation()
   // danh sách các route KHÔNG hiển thị navbar/footer
   const noLayoutRoutes = ['/auth', '/admin']  
