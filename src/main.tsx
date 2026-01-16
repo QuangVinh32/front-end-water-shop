@@ -10,10 +10,9 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
-      <AppTheme colors={Colors.dark}>
+      <AppTheme colors={Colors.tet}>
         <App />
       </AppTheme>
-
     </StrictMode>,
   );
 } else {

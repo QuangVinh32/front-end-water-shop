@@ -29,10 +29,10 @@ export default function GuidePage() {
 
   return (
     <div
-      className="relative py-10 px-4 mt-20 text-center overflow-hidden"
+      className="relative py-10 px-4 text-center overflow-hidden"
       style={{ backgroundColor: colors.bgPrimary }}
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative mt-20 z-10">
         {/* Title */}
         <div className="mb-10">
           <h2

@@ -1,12 +1,22 @@
-import request from "./AxiosClient";
+// src/services/AuthService.ts
+import axios from "axios";
 
-const authService = {
-  login(credentials) {
-    return request.post("login", credentials);
-  },
-  register(payload) {
-    return request.post("register", payload);
-  },
+const API_URL = "http://localhost:8080/api";
+
+const login = (data: { username: string; password: string }) => {
+  return axios.post(`${API_URL}/login`, data);
 };
 
-export default authService;
+const register = (data: FormData) => {
+  return axios.post(`${API_URL}/register`, data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export default {
+  login,
+  register,
+};
+

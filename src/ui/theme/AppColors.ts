@@ -27,8 +27,8 @@ export const Colors = {
   },
 
   dark: {
-    bgPrimary: "#000000",
-    bgSecondary: "#1C1C1E",
+    bgPrimary: "#221717be",
+    bgSecondary: "#0e0e0f",
     surface: "#2C2C2E",
     border: "#38383A",
     textPrimary: "#FFFFFF",

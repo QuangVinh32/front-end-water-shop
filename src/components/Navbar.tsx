@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav
       style={{
         background: colors.bgSecondary,
-        borderBottom: `1px solid ${colors.border}`,
+        // borderBottom: `1px solid ${colors.border}`,
       }}
       className="fixed top-0 left-0 right-0 z-50 shadow-sm px-10"
     >

@@ -3,11 +3,28 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/AuthService";
 import { setUserInfo } from "../helpers/Common";
 import { toast } from "react-toastify";
+import { 
+  Eye, 
+  EyeOff, 
+  User, 
+  Lock, 
+  Mail, 
+  UserCircle, 
+  Phone, 
+  MapPin,
+  ArrowLeft,
+  LogIn,
+  UserPlus,
+  Camera,
+  Upload
+} from "lucide-react";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",
@@ -16,264 +33,443 @@ const AuthPage = () => {
     email: "",
     phone: "",
     address: "",
+    image: null as File | null,
   });
+
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData({
+        ...formData,
+        image: e.target.files[0]
+      });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (isLogin) {
-      // LOGIN
       try {
         const res = await authService.login({
           username: formData.username,
           password: formData.password,
         });
-        const userData = res.data;
-        setUserInfo(userData);
-        toast.success("Đăng nhập thành công!");
+        setUserInfo(res.data);
+        toast.success("🎉 Đăng nhập thành công!");
         navigate("/home");
-      } catch (err) {
-        toast.error(err);
-        toast.error("Đăng nhập thất bại!");
+      } catch {
+        toast.error("❌ Đăng nhập thất bại!");
+      } finally {
+        setIsLoading(false);
       }
-    } else {
-      // REGISTER
-      if (formData.password !== formData.confirmPassword) {
-        alert("Mật khẩu xác nhận không khớp!");
-        return;
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("❌ Mật khẩu xác nhận không khớp!");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const data = new FormData();
+      data.append("username", formData.username);
+      data.append("password", formData.password);
+      data.append("fullName", formData.fullName);
+      data.append("email", formData.email);
+      data.append("phone", formData.phone);
+      data.append("address", formData.address);
+
+      if (formData.image) {
+        data.append("image", formData.image);
       }
-      try {
-        const res = await authService.register({
-          username: formData.username,
-          password: formData.password,
-          fullName: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          address: formData.address,
-        });
-        toast.success("Đăng ký thành công! Hãy đăng nhập.");
-        setIsLogin(true);
-      } catch (err) {
-        console.error(err);
-        toast.error("Đăng ký thất bại!");
-      }
+
+      await authService.register(data);
+      toast.success("✅ Đăng ký thành công! Hãy đăng nhập.");
+      setIsLogin(true);
+      setFormData({
+        fullName: "",
+        username: "",
+        password: "",
+        confirmPassword: "",
+        email: "",
+        phone: "",
+        address: "",
+        image: null,
+      });
+    } catch (err: any) {
+      toast.error(err?.response?.data?.message || "❌ Đăng ký thất bại!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const theme = {
+    primary: {
+      50: '#f0f9ff',
+      100: '#e0f2fe',
+      200: '#bae6fd',
+      300: '#7dd3fc',
+      400: '#38bdf8',
+      500: '#0ea5e9',
+      600: '#0284c7',
+      700: '#0369a1',
+      800: '#075985',
+      900: '#0c4a6e',
+    },
+    green: {
+      50: '#f0fdf4',
+      100: '#dcfce7',
+      200: '#bbf7d0',
+      300: '#86efac',
+      400: '#4ade80',
+      500: '#22c55e',
+      600: '#16a34a',
+      700: '#15803d',
+      800: '#166534',
+      900: '#14532d',
+    },
+    gray: {
+      50: '#f9fafb',
+      100: '#f3f4f6',
+      200: '#e5e7eb',
+      300: '#d1d5db',
+      400: '#9ca3af',
+      500: '#6b7280',
+      600: '#4b5563',
+      700: '#374151',
+      800: '#1f2937',
+      900: '#111827',
     }
   };
 
   return (
-    <div className="min-h-screen bg-green-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md">
-        <div className="py-6 px-8">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-            {isLogin ? 'Đăng Nhập' : 'Tạo Tài Khoản'}
-          </h2>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center p-4 md:p-6">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
 
-          <form onSubmit={handleSubmit}>
-            {!isLogin && (
-              <>
-                <div className="flex gap-2">
-                  <div className="mb-4">
-                    <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="fullName">
-                      Họ và tên
-                    </label>
-                    <input
-                      className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      id="fullName"
-                      type="text"
-                      placeholder="Nhập họ và tên"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required={!isLogin}
-                    />
+      <div className="relative w-full max-w-xl">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg mb-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+              <Lock className="text-white" size={24} />
+            </div>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">
+            Chào mừng bạn
+          </h1>
+          <p className="text-gray-600">
+            {isLogin ? "Đăng nhập để tiếp tục trải nghiệm" : "Tạo tài khoản mới của bạn"}
+          </p>
+        </div>
+
+        {/* Card */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-gray-200/50">
+          {/* Tab Switcher */}
+          <div className="flex border-b border-gray-200">
+            <button
+              onClick={() => setIsLogin(true)}
+              className={`flex-1 py-5 font-semibold text-lg transition-all duration-300 relative ${
+                isLogin ? 'text-green-700' : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Đăng Nhập
+              {isLogin && (
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 rounded-t-full"></div>
+              )}
+            </button>
+            <button
+              onClick={() => setIsLogin(false)}
+              className={`flex-1 py-5 font-semibold text-lg transition-all duration-300 relative ${
+                !isLogin ? 'text-green-700' : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Đăng Ký
+              {!isLogin && (
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 rounded-t-full"></div>
+              )}
+            </button>
+          </div>
+
+          <div className="p-8 md:p-10">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Register Fields */}
+              {!isLogin && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <UserCircle size={16} />
+                        Họ và tên
+                      </label>
+                      <input
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none"
+                        placeholder="Nguyễn Văn A"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <Mail size={16} />
+                        Email
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none"
+                        placeholder="example@email.com"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <Phone size={16} />
+                        Số điện thoại
+                      </label>
+                      <input
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none"
+                        placeholder="0123456789"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                        <MapPin size={16} />
+                        Địa chỉ
+                      </label>
+                      <input
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none"
+                        placeholder="Số nhà, đường, thành phố"
+                        required
+                      />
+                    </div>
                   </div>
 
-                  <div className="mb-4">
-                    <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="email">
-                      Email
+                  {/* Image Upload */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                      <Camera size={16} />
+                      Ảnh đại diện
                     </label>
+                    <div className="flex items-center gap-4">
+                      <label className="flex-1 cursor-pointer">
+                        <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-green-500 hover:bg-green-50 transition-all duration-200 group">
+                          <Upload className="mx-auto text-gray-400 group-hover:text-green-500 mb-2" size={24} />
+                          <p className="text-sm text-gray-600">
+                            {formData.image ? formData.image.name : "Nhấn để tải lên ảnh"}
+                          </p>
+                          <p className="text-xs text-gray-400 mt-1">JPG, PNG (max 5MB)</p>
+                        </div>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={handleImageUpload}
+                          className="hidden"
+                        />
+                      </label>
+                      {formData.image && (
+                        <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-green-500">
+                          <img 
+                            src={URL.createObjectURL(formData.image)} 
+                            alt="Preview" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Common Fields */}
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                    <User size={16} />
+                    Tài khoản
+                  </label>
+                  <input
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none"
+                    placeholder="Nhập tài khoản"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                    <Lock size={16} />
+                    Mật khẩu
+                  </label>
+                  <div className="relative">
                     <input
-                      className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      id="email"
-                      type="email"
-                      placeholder="Nhập địa chỉ email"
-                      name="email"
-                      value={formData.email}
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      value={formData.password}
                       onChange={handleChange}
-                      required={!isLogin}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none pr-12"
+                      placeholder="Nhập mật khẩu"
+                      required
                     />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                    >
+                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    </button>
                   </div>
                 </div>
 
-
-                <div className="flex gap-2">
-                  <div className="mb-4">
-                    <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="phone">
-                      Số điện thoại
+                {!isLogin && (
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                      <Lock size={16} />
+                      Xác nhận mật khẩu
                     </label>
-                    <input
-                      className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      id="phone"
-                      type="tel"
-                      placeholder="Nhập số điện thoại"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required={!isLogin}
-                    />
+                    <div className="relative">
+                      <input
+                        type={showConfirmPassword ? "text" : "password"}
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 outline-none pr-12"
+                        placeholder="Nhập lại mật khẩu"
+                        required
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      >
+                        {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                      </button>
+                    </div>
                   </div>
+                )}
+              </div>
 
-                  <div className="mb-4">
-                    <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="address">
-                      Địa chỉ
-                    </label>
-                    <input
-                      className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      id="address"
-                      type="text"
-                      placeholder="Nhập địa chỉ"
-                      name="address"
-                      value={formData.address}
-                      onChange={handleChange}
-                      required={!isLogin}
-                    />
-                  </div></div>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
+                  isLoading 
+                    ? 'bg-gradient-to-r from-gray-400 to-gray-500 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 hover:shadow-xl transform hover:-translate-y-0.5'
+                } text-white shadow-lg`}
+              >
+                {isLoading ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Đang xử lý...
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-2">
+                    {isLogin ? <LogIn size={20} /> : <UserPlus size={20} />}
+                    {isLogin ? "Đăng Nhập" : "Đăng Ký"}
+                  </div>
+                )}
+              </button>
+            </form>
 
-              </>
-            )}
-
-            <div className="mb-4">
-              <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="username">
-                Tài khoản
-              </label>
-              <input
-                className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="username"
-                type="text"
-                placeholder="Nhập tên đăng nhập"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="mb-4 relative">
-              <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="password">
-                Mật khẩu
-              </label>
-              <div className="relative">
-                <input
-                  className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10"
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Nhập mật khẩu"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
+            {/* Footer Links */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setIsLogin(!isLogin)}
+                  className="text-green-600 hover:text-green-700 font-medium flex items-center gap-2 transition-colors"
                 >
-                  {showPassword ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-500">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-                    </svg>
+                  {isLogin ? (
+                    <>
+                      <UserPlus size={16} />
+                      Chưa có tài khoản? Đăng ký ngay
+                    </>
                   ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-500">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                    <>
+                      <LogIn size={16} />
+                      Đã có tài khoản? Đăng nhập
+                    </>
                   )}
                 </button>
+
+                <Link
+                  to="/home"
+                  className="text-gray-600 hover:text-gray-800 font-medium flex items-center gap-2 transition-colors"
+                >
+                  <ArrowLeft size={16} />
+                  Quay về trang chính
+                </Link>
+              </div>
+
+              <div className="mt-6 text-center">
+                <p className="text-xs text-gray-500">
+                  Bằng việc tiếp tục, bạn đồng ý với{' '}
+                  <a href="#" className="text-green-600 hover:underline">Điều khoản sử dụng</a>{' '}
+                  và{' '}
+                  <a href="#" className="text-green-600 hover:underline">Chính sách bảo mật</a>
+                </p>
               </div>
             </div>
-
-            {!isLogin && (
-              <div className="mb-6 relative">
-                <label className="flex text-gray-700 text-sm font-medium mb-2" htmlFor="confirmPassword">
-                  Xác nhận mật khẩu
-                </label>
-                <div className="relative">
-                  <input
-                    className="bg-gray-50 border border-green-300 text-gray-900 rounded-lg 
-                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10"
-                    id="confirmPassword"
-                    type={showConfirmPassword ? "text" : "password"}
-                    placeholder="Xác nhận mật khẩu"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required={!isLogin}
-                  />
-                  <button
-                    type="button"
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  >
-                    {showConfirmPassword ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-500">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-                      </svg>
-                    ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-500">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    )}
-                  </button>
-                </div>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white font-medium rounded-lg 
-              text-sm px-5 py-2.5 text-center hover:bg-blue-700 
-              focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-              {isLogin ? 'Đăng Nhập' : 'Đăng Ký'}
-            </button>
-          </form>
-
-          <div className="mt-4 text-center">
-            <button
-              onClick={() => setIsLogin(!isLogin)}
-              className="text-sm text-blue-600 hover:underline"
-            >
-              {isLogin ? 'Chưa có tài khoản? Đăng ký ngay' : 'Đã có tài khoản? Đăng nhập'}
-            </button>
-          </div>
-
-          {/* Nút quay về */}
-          <div className="mt-6 text-center">
-            <Link
-              to="/home"
-              className="inline-block text-sm px-4 py-2 bg-gray-200 hover:bg-gray-300 
-              text-gray-700 rounded-lg transition"
-            >
-              ⬅ Quay về trang chính
-            </Link>
           </div>
         </div>
+
+        {/* Decorative Elements */}
+        <div className="flex justify-center gap-3 mt-8">
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              className="w-2 h-2 rounded-full bg-gradient-to-r from-green-400 to-blue-400 opacity-50 animate-pulse"
+              style={{ animationDelay: `${i * 0.2}s` }}
+            />
+          ))}
+        </div>
       </div>
+
+      {/* Animation Styles */}
+      <style jsx>{`
+        @keyframes blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </div>
   );
 };

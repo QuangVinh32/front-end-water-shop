@@ -24,7 +24,7 @@ function Layout({ children }:LayoutRouteProps) {
   )
 
   return (
-    <main className="min-h-screen overflow-x-hidden relative">
+    <main className="min-h-screen overflow-x-hidden relative bg-blue">
       <div className="overflow-hidden">
         {!hideLayout && <Navbar />}
         <ScrollToTop />
